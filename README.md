@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Frontend React Test Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a React application built with TypeScript and React Context for managing and visualizing a matrix of data. Users can interact with the matrix by increasing cell values, finding nearest cells by value, viewing percentages, and more. This README provides an overview of the project's functionality, technical requirements, and setup instructions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technical Requirements
 
-## Expanding the ESLint configuration
+- **Technologies Used**: TypeScript, React, React Context
+- **Deployment**: The production build was deployed to Vercel
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+1. **Matrix Creation**:
+    - Create a matrix with `M` rows and `N` columns based on user inputs.
+    - Each cell contains a unique `id` and a randomly generated `amount` (three-digit number).
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. **Table View**:
+    - Display the matrix in a table format.
+    - Include an additional column for row sums.
+    - Include an additional row for the 50th percentile value for each column.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. **Cell Interaction**:
+    - Increment the value in a cell by 1 when it is clicked.
+    - Recalculate and display updated sums and percentages.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+4. **Highlight Nearest Cells**:
+    - On hovering over a cell, highlight `X` cells with values closest to the hovered cell's value.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+5. **Percentage View**:
+    - Hovering over the sum cell in a row displays percentages of each cell's value relative to the row total.
+    - Display a heatmap background representing each cell's value as a percentage of the maximum value in the row.
+
+6. **Row Management**:
+    - Ability to remove any row with recalculated sums and averages.
+    - Ability to add new rows at the end of the table with recalculated sums and averages.
+
+## Limits
+
+- **M (Number of Rows)**: 0 to 100
+- **N (Number of Columns)**: 0 to 100
+- **X (Number of Nearest Cells to Highlight)**: Calculated based on the values of `M` and `N`.
+
+## Setup Instructions
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/All1in/my-matrix-square.git
