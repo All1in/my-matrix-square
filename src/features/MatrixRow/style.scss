@@ -1,0 +1,43 @@
+.matrix-table__remove-row-button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.matrix-table__remove-row-button:hover {
+  background-color: #e03e3e;
+  transform: scale(1.05);
+}
+
+.bold {
+  font-weight: 700;
+  color: #333;
+}
+
+.custom-header {
+  border: 1px solid #ddd;
+  padding: 16px;
+  background: linear-gradient(90deg, #1e1e1e, #434343);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+tr {
+  &:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  &:hover {
+    background-color: #e6e6e6;
+  }
+  & td:last-child {
+    background-color: #ffffff;
+  }
+}
